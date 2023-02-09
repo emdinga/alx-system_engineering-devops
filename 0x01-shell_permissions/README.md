@@ -6,3 +6,4 @@ empty files
 execute
 6-multiple_permissions
 everybody
+james bond
