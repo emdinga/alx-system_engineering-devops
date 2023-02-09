@@ -12,3 +12,4 @@ script that changes the working directory to the previous one
 a script
 a script that prints the type of the file 
 Create a symbolic link 
+Create a script that copies all the HTML
