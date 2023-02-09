@@ -14,3 +14,4 @@ a script that prints the type of the file
 Create a symbolic link 
 Create a script that copies all the HTML
 lets move
+clean emacs
