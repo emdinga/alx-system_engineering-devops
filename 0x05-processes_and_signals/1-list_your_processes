@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#a Bash script that displays a list of currently running processes
+
+printf "%-10s %-5s %-5s %-6s %-6s %-8s %-6s %-8s %-6s %s\n" "USER" "PID" "%CPU" "%MEM" "VSZ" "RSS" "TTY" "STAT" "START" "COMMAND"
+ps ax -o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,comm --sort=pid | awk 'NR>1 { printf "%-10s %-5s %-5s %-6s %-6s %-8s %-6s %-8s %-6s %s\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10 }' | head -n 50
+

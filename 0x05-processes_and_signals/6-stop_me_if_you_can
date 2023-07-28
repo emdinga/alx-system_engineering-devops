@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Create the signal file to stop the process
+
+touch stop_signal
+
