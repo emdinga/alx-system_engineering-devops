@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+#a Bash file that manges a separate file
+
+PID_FILE="/var/run/my_process.pid"
+PROCESS_SCRIPT="./manage_my_process"
+
+start() 
+{
+    if [ -f "$PID_FILE" ]; then
+        echo "manage_my_process is already running."
+    else
+        "$PROCESS_SCRIPT" &
+        echo $! > "$PID_FILE"
+        echo "manage_my_process started"
+    fi
+}
+
+stop() 
+{
+    if [ -f "$PID_FILE" ]; then
+        pid=$(cat "$PID_FILE")
+        kill $pid
+        rm -f "$PID_FILE"
+        echo "manage_my_process stopped"
+    else
+        echo "manage_my_process is not running."
+    fi
+}
+
+restart() 
+{
+    stop
+    start
+    echo "manage_my_process restarted"
+}
+
+usage() 
+{
+    echo "Usage: $0 {start|stop|restart}"
+}
+
+if [ $# -eq 0 ]; then
+    usage
+elif [ "$1" == "start" ]; then
+    start
+elif [ "$1" == "stop" ]; then
+    stop
+elif [ "$1" == "restart" ]; then
+    restart
+else
+    usage
+fi
+
