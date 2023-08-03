@@ -1,0 +1,23 @@
+#!/bin/bash
+# Check if the IP address argument is provided
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 {IP_ADDRESS}"
+  exit 1
+fi
+
+# Function to perform the ping 5 times
+function perform_ping 
+{
+  echo "PING $1 ($1) 56(84) bytes of data."
+  ping -c 5 "$1"
+}
+
+# Check if the argument is a valid IP address
+if [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  perform_ping "$1"
+else
+  echo "Invalid IP address format: $1"
+  echo "Usage: $0 {IP_ADDRESS}"
+  exit 1
+fi
