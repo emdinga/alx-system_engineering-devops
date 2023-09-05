@@ -1,0 +1,35 @@
+https://github.com/emdinga/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0_simple_web_stack.PNG
+What is a server?
+
+A server is a computer or a system that provides services, resources, or data to other computers or clients over a network. Servers are designed to be reliable, have high uptime, and are configured to handle specific tasks or roles, such as web hosting, email, database management, or file storage.
+What is the role of the domain name?
+
+A domain name is a human-readable and memorable address that is used to access resources on the internet. It acts as a pointer to a specific IP address. Domain names are used to make it easier for users to find websites and services without needing to remember numerical IP addresses.
+What type of DNS record is "www" in www.foobar.com?
+
+The "www" in "www.foobar.com" is a subdomain, and it is typically represented as a CNAME (Canonical Name) DNS record. This CNAME record usually points to the main domain (foobar.com) or to an IP address where the web server is hosted.
+What is the role of the web server?
+
+The web server's role is to handle HTTP requests from clients (web browsers) and serve web pages and other resources in response to those requests. It listens for incoming HTTP requests, processes them, interacts with the application server if necessary, and sends back the appropriate HTTP responses to the clients.
+What is the role of the application server?
+
+The application server hosts and executes the application code or business logic of a web application. It communicates with the web server to process dynamic requests, generate HTML content, interact with databases, and perform other application-specific tasks. It separates the web server from the application logic, allowing for scalability and maintainability.
+What is the role of the database?
+
+The database stores, manages, and retrieves data required by the application. It serves as a persistent data storage system that can handle structured data. The database server manages data integrity, security, and access. In web applications, it is often used to store user information, content, and application data.
+What is the server using to communicate with the user's computer requesting the website?
+
+The server communicates with the user's computer through the HTTP (Hypertext Transfer Protocol) or HTTPS (HTTP Secure) protocols. These protocols define how data is formatted and transmitted between the web server and the user's web browser. HTTP/HTTPS requests are initiated by the user's browser, and the server responds with HTML, CSS, JavaScript, and other resources to render the web page.
+Issues with this Infrastructure:
+
+Single Point of Failure (SPOF):
+
+The infrastructure described has a single server, which means it has a single point of failure. If the server experiences hardware or software issues, the entire service becomes unavailable, leading to downtime.
+Downtime During Maintenance:
+
+Performing maintenance or updates, such as deploying new code, may require restarting the web server. This can result in downtime for the website, impacting users' ability to access it during maintenance periods.
+Scalability Challenges:
+
+This infrastructure may face scalability challenges when dealing with increased incoming traffic. Scaling horizontally to handle higher traffic loads can be complex, as it might involve setting up additional servers, load balancing, and database scaling strategies.
+To address these issues, considerations like redundancy, load balancing, and fault tolerance can be implemented to ensure high availability and scalability. Additionally, cloud-based solutions and containerization technologies can provide more flexible and scalable infrastructure options.
+
