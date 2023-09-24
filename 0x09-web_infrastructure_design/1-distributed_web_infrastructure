@@ -1,0 +1,61 @@
+https://github.com/emdinga/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/1-web_distributed_web_infrastructure.PNG
+
+New Infrastructure Components:
+
+Two Servers (Server 1 and Server 2):
+
+Adding two servers increases redundancy and fault tolerance. If one server fails, the other can continue to serve traffic.
+Web Server (Nginx):
+
+Nginx is used as a web server to handle HTTP requests, serve static files, and act as a reverse proxy to the application server.
+Application Server:
+
+The application server hosts and executes the application code and handles dynamic requests from clients.
+Load Balancer (HAproxy):
+
+The load balancer distributes incoming traffic across multiple application server instances for load balancing, scalability, and fault tolerance.
+Set of Application Files (Code Base):
+
+The application code contains the logic and functionality of the web application.
+Database (MySQL):
+
+MySQL is used as a relational database to store and manage application data.
+Specifics About the Infrastructure:
+
+Why Adding These Elements:
+
+Adding multiple servers increases redundancy and fault tolerance.
+Nginx acts as a web server and reverse proxy.
+The application server hosts application logic.
+HAproxy load-balances traffic.
+The database stores application data.
+Load Balancer Distribution Algorithm:
+
+The load balancer (HAproxy) is configured with a distribution algorithm, such as round-robin, that evenly distributes incoming requests to the available application server instances.
+Active-Active vs. Active-Passive Setup:
+
+In this setup, HAproxy enables an Active-Active configuration where all application server instances are active and handle incoming requests. Active-Passive would involve one server actively serving traffic while the other is on standby.
+Primary-Replica (Master-Slave) Database Cluster:
+
+A Primary-Replica database cluster consists of a primary (master) node and one or more replica (slave) nodes. The primary node handles write operations, while replica nodes replicate data from the primary and handle read operations.
+Difference Between Primary and Replica Nodes:
+
+Primary Node:
+Handles write operations.
+Acts as the authoritative source for data changes.
+Replica Node:
+Replicates data from the primary.
+Handles read operations, providing read scalability and fault tolerance.
+Issues with This Infrastructure:
+
+Single Points of Failure (SPOF):
+
+The infrastructure still has single points of failure, including the load balancer and the database. If any of these components fail, it can result in downtime.
+Security Issues (No Firewall, No HTTPS):
+
+The infrastructure lacks a firewall, leaving it vulnerable to unauthorized access.
+HTTPS (SSL/TLS) is not mentioned, which poses a security risk for data transmission.
+No Monitoring:
+
+There is no mention of monitoring tools or practices, making it challenging to identify and address issues promptly.
+To improve this infrastructure, you can introduce redundancy for critical components, implement firewalls and security measures, and set up monitoring and alerting systems to enhance security, availability, and performance. Additionally, consider adding HTTPS support for secure data transmission.
