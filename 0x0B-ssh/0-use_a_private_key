@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#script to connect to a sever
 ssh -i ~/.ssh/school -o StrictHostKeyChecking=no -l ubuntu 8.8.8.8
