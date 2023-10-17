@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Update the Nginx configuration to run as the nginx user
+sed -i 's/user  nginx;/user  nginx nginx;/' /etc/nginx/nginx.conf
+# Update the default site configuration to listen on port 8080 for all IPs
+sed -i 's/listen       80;/listen       8080;/' /etc/nginx/conf.d/default.conf
+# Start the Nginx service
+nginx
+# Keep the script running (to keep the container running)
+tail -f /dev/null
