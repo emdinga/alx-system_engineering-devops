@@ -4,6 +4,7 @@
 import requests
 from collections import Counter
 
+
 def count_words(subreddit, word_list, after=None, word_counts=None):
     """
     Recursively fetch hot articles from a subreddit
